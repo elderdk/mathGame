@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    {% load static %}
+<title>Math Game</title>
+    <link rel="stylesheet" type="text/css" href="{% static "mainPage/home.css" %}">
+</head>
+
+<body>
+    {% for m in messages %}
+    <p>{{m}}</p>
+    {% endfor %}
+    
+    {% block content %}
+    {% endblock content %}
+
+    <script src="{% static "mainPage/home.js" %}"></script>
+</body>
+</html>
