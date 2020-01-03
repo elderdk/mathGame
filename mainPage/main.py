@@ -56,11 +56,10 @@ class newNumber:
         return True
 
     def finalEquation(self):
+        eq = {}
         while True:
             equation = self.equation()
             answer = eval(equation)
             if self.is_valid(answer):
-                eq = equation.split(' ')
-                eq.append(str(answer))
-                if len(eq) > 2:
-                    return eq
+                eq = {'equation': equation.split(' '), 'answer': answer}
+                return eq

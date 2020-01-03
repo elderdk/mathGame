@@ -2,31 +2,20 @@
 {% block content %}
 Current user: {{ user.username }}
 Score: {{ user.score.score }}
+
 <div id="settingsOpenButton">
 Settings
 </div>
+
 <table>
-{% for set in numSet %}
-<tr>
-        {% for e in set%}
-                {% if forloop.last %}
-                        <td>=</td>
-                        <td><input type="number" class="answer r{{ forloop.parentloop.counter }}"></td>
-                        <td class="correctAnswer">{{ e }}</td>
-                        <td class="result r{{ forloop.parentloop.counter }}">Correct</td>
-                {% else %}
-                        {% if e == '*' %}
-                        <td class="equationNumber">X</td>
-                        {% else %}
-                        <td class="equationNumber">{{ e }}</td>
-                        {% endif %}
-                {% endif %}
-        {% endfor %}</tr>
-{% endfor %}
+
+<tr id="equation-tr"></tr>
 </table>
+
 <div id="scoreBoard">
 <span id="scoreNumber"></span>
 </div>
+
 <audio src="/media/button-28.mp3" type="audio/mpeg" id="successSound"></audio>
 <div id="settingsPage">
         
