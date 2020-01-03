@@ -1,10 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Settings(models.Model):
-    num1Max = models.IntegerField()
-    num2Max = models.IntegerField()
-    add = models.BooleanField()
-    subtract = models.BooleanField()
-    multiply = models.BooleanField()
-    divide = models.BooleanField()
+class Score(models.Model):
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    score = models.IntegerField(default = 0)
+
+    def __str__(self):
+        return f'Current score: {self.score}'

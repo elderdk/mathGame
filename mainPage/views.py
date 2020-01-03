@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .main import newNumber
-from django.contrib import messages
 from .forms import SettingsForm
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+
 
 # Create your views here.
-def home(request):
+def math(request):
     settings = [
         [],
         [],
@@ -46,4 +49,17 @@ def home(request):
     for _ in range(100): # Creates the range number of equations.
         returnArr.append(newSet.finalEquation())
     context['numSet'] = returnArr
+    return render(request, 'mainPage/math.html', context)
+
+def home(request):
+    context = {
+        'userList': User.objects.all(),
+        }
     return render(request, 'mainPage/home.html', context)
+
+def auth_user(request, username):
+    password = 'please3213'
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+    return redirect('mathPage')
