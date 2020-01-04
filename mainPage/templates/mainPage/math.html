@@ -1,15 +1,15 @@
 {% extends 'mainPage/base.html' %}
 {% block content %}
 Current user: {{ user.username }}
-Score: {{ user.score.score }}
+Score: <span id="score-display">{{ user.score.score }}</span>
 
 <div id="settingsOpenButton">
 Settings
 </div>
 
 <table>
-
-<tr id="equation-tr"></tr>
+<tr id="equation-tr">
+</tr>
 </table>
 
 <div id="scoreBoard">
@@ -27,7 +27,30 @@ Settings
         </form>        
         
 </div>
-{% load static %}
-<script src="{% static "mainPage/settings.js" %}"></script>
+
 {{ numSet|json_script:"equation-list" }}
+
+{% load static %}
+<script src="{% static "mainPage/home.js" %}"></script>
+<script src="{% static "mainPage/settings.js" %}"></script>
+
+<script>
+const addAjax = () => {
+        $.ajax({
+                type:'POST',
+                url:'{% url "scoreup" %}',
+                data:{
+                        action: 'POST',
+                        csrfmiddlewaretoken:'{{ csrf_token }}',
+                        },
+                success:function(json){
+                        $('#score-display').text(json.currentScore);                    
+                        },
+                error : function(xhr,errmsg,err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                }
+        });
+}
+</script>
+
 {% endblock content %}

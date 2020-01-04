@@ -45,6 +45,8 @@ const upScore = () => {
     document.querySelector('#scoreNumber').innerHTML = score;
 }
 
+let result = '';
+
 // Add event listener to the initial one and ones thereafter.
 const refreshEventListener = ab => {
     ab.addEventListener("keydown", event => {
@@ -52,6 +54,11 @@ const refreshEventListener = ab => {
     
         if(event.keyCode === 13){
             if(Number(answerBox.value) === correctAnswer){
+                result = 'correct'
+            } else {
+                result = 'incorrect'
+            }
+            if(result === 'correct'){
                 upScore();
                 scoreBoard.innerHTML += raspberry;    // Add a raspberry if answer is correct
                 successSound.play();
@@ -69,9 +76,10 @@ const refreshEventListener = ab => {
                 }
                 
                 answerBox = document.querySelector(".answer")
+                addAjax();
                 doFocus()
                 return refreshEventListener(answerBox)
-            }            
+            }         
         };
     });   
 }

@@ -7,4 +7,4 @@ class Score(models.Model):
     score = models.IntegerField(default = 0)
 
     def __str__(self):
-        return f'Current score: {self.score}'
+        return f'{self.user} score: {self.score}'

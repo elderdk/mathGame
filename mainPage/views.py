@@ -4,6 +4,7 @@ from .forms import SettingsForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -63,3 +64,13 @@ def auth_user(request, username):
     if user is not None:
         login(request, user)
     return redirect('mathPage')
+
+def scoreup(request):
+    response_data = {}
+    
+    if request.POST.get('action') == 'POST':
+        user = User.objects.get(pk = request.user.pk)
+        user.score.score += 1
+        user.score.save()
+        response_data['currentScore'] = user.score.score
+        return JsonResponse(response_data)
