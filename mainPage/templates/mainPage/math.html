@@ -41,7 +41,7 @@ const addAjax = () => {
                 url:'{% url "scoreup" %}',
                 data:{
                         action: 'POST',
-                        csrfmiddlewaretoken:'{{ csrf_token }}',
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                         },
                 success:function(json){
                         $('#score-display').text(json.currentScore);                    
