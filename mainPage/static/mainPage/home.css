@@ -1,82 +1,17 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-* {
-    box-sizing: border-box;
-}
-
 body {
-    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-#top-info {
-    display: block;
+.container {
     border: blue solid 1px;
-    padding: 10px;
-    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
 }
-
-#user-info {
-    float: left;
-    border: red dotted 1px;
-}
-
-#settingsOpenButton {   
-    float: right;
-    border: red dotted 1px;
-    cursor: pointer;
-}
-
-#table-container {
-    border: red solid 1px;
-}
-
-table {
-    border-collapse: separate;
-    border-spacing: 0.5em;
-    margin: 0 auto;
-    font-size: 5em;
-    font-stretch: expanded;
-}
-
-.equationNumber {
-    border: solid red 1px;
-    padding: 10px;
-    width: 2em;
-    text-align: center;
-    vertical-align: middle;
-    border-radius:10%;
-}
-
-.rasp {
-    width: 25px;
-    height: 25px;
-}
-
-table input[type="number"]{
-    border: solid red 1px;
-    height: 5em;
-    width: 5em;
-    text-align: center;
-    vertical-align: middle;
-    border-radius:10%;
-    font-size: 0.5em;
-}
-
-#scoreBoard {
-    display: block;
-    height: 20%;
-    border: red solid 1px;
-}
-
-#settingsPage {
-    display: none;
-    width: 50%;
-}
-
-#exitSettings {
-    float: right;
-    cursor: pointer;
+.userBlock {
+    border: #ff0000 dotted 1px;
+    border-radius: 5px;
+    margin: 0 10px;
+    height: 100px;
+    width: 100px;
 }

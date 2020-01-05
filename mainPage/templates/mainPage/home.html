@@ -1,6 +1,9 @@
 {% extends 'mainPage/base.html' %}
 {% block content %}
 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "mainPage/home.css" %}">
+
 <div class="container">
         {% for user in userList %}
                 {% if user.username != 'admin' %}
@@ -8,6 +11,5 @@
                 {% endif %}
         {% endfor %}
 </div>
-{{ a_user.username }} is logged in.
 
 {% endblock content %}
