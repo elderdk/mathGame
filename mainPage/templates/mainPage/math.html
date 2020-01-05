@@ -1,36 +1,41 @@
 {% extends 'mainPage/base.html' %}
 {% block content %}
-Current user: {{ user.username }}
-Score: <span id="score-display">{{ user.score.score }}</span>
+{% load static %}
 
-<div id="settingsOpenButton">
-Settings
+<div id="top-info">
+        <div id="user-info">
+        Current user: {{ user.username }}
+        Score: <span id="score-display">{{ user.score.score }}</span>
+        </div>
+        <div id="settingsOpenButton">
+        Settings
+        </div>
 </div>
 
-<table>
-<tr id="equation-tr">
-</tr>
-</table>
+<div id="table-container">
+        <table>
+                <tr id="equation-tr">
+                </tr>
+        </table>
+</div>
 
 <div id="scoreBoard">
-<span id="scoreNumber"></span>
+        <span id="scoreNumber"></span>
 </div>
 
 <audio src="/media/button-28.mp3" type="audio/mpeg" id="successSound"></audio>
+
 <div id="settingsPage">
-        
-                <div id="exitSettings">X</div>
+        <div id="exitSettings">X</div>
         <form action="." method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
         </form>        
-        
 </div>
 
 {{ numSet|json_script:"equation-list" }}
 
-{% load static %}
 <script src="{% static "mainPage/home.js" %}"></script>
 <script src="{% static "mainPage/settings.js" %}"></script>
 
