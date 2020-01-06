@@ -1,36 +1,24 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-* {
-    box-sizing: border-box;
-}
-
 body {
     align-content: center;
 }
 
 #top-info {
     display: block;
-    border: blue solid 1px;
     padding: 10px;
     height: 50px;
 }
 
 #user-info {
     float: left;
-    border: red dotted 1px;
 }
 
 #settingsOpenButton {   
     float: right;
-    border: red dotted 1px;
     cursor: pointer;
 }
 
 #table-container {
-    border: red solid 1px;
+    padding: 3% 0;
 }
 
 table {
@@ -42,33 +30,42 @@ table {
 }
 
 .equationNumber {
-    border: solid red 1px;
     padding: 10px;
-    width: 2em;
     text-align: center;
     vertical-align: middle;
     border-radius:10%;
+    font-size: 1.5em;
 }
 
-.rasp {
-    width: 25px;
-    height: 25px;
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-table input[type="number"]{
-    border: solid red 1px;
-    height: 5em;
-    width: 5em;
+input[type="number"]{
+    font: inherit;
+    font-size: 1.5em;
     text-align: center;
     vertical-align: middle;
-    border-radius:10%;
-    font-size: 0.5em;
+    max-width: 3em;
+    border: none;
+    outline: none;
+    border-bottom: black solid 1px;
 }
 
 #scoreBoard {
-    display: block;
+    display: flex;
+    padding: auto 0;
     height: 20%;
-    border: red solid 1px;
+    justify-content: center;
+    align-items: center;
+    padding: 8% 0;
+}
+
+#scoreNumber {
+    font-size: 7em;
+    color: goldenrod;
 }
 
 #settingsPage {

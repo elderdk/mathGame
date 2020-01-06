@@ -25,7 +25,6 @@ makeNewTr(initialTR)
 
 // Find answer box and set initial score
 let answerBox = document.querySelector(".answer")
-let score = 0;
 
 // Autofocusing to the input box when the page is loaded
 const doFocus = () => {
@@ -36,14 +35,7 @@ doFocus()
 
 // Set variables
 const scoreBoard = document.querySelector("#scoreBoard");
-const raspberry = "<img src='/media/raspberry.png' class='rasp'>"
 const successSound = document.querySelector('#successSound')
-
-// Increase score
-const upScore = () => {
-    score++;
-    document.querySelector('#scoreNumber').innerHTML = score;
-}
 
 let result = '';
 
@@ -59,8 +51,6 @@ const refreshEventListener = ab => {
                 result = 'incorrect'
             }
             if(result === 'correct'){
-                upScore();
-                scoreBoard.innerHTML += raspberry;    // Add a raspberry if answer is correct
                 successSound.play();
                 initialTR++;
 

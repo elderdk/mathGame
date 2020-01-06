@@ -7,7 +7,7 @@
 <div class="container">
         {% for user in userList %}
                 {% if user.username != 'admin' %}
-                        <div class="userBlock"><a href="authenticate/{{user.username}}">{{ user.username }}</a></div>
+                        <a href="authenticate/{{user.username}}"><div class="userBlock">{{ user.username }}</div></a>
                 {% endif %}
         {% endfor %}
 </div>

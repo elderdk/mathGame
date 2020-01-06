@@ -70,7 +70,7 @@ def scoreup(request):
     
     if request.POST.get('action') == 'POST':
         user = User.objects.get(pk = request.user.pk)
-        user.score.score += 1
+        user.score.score += 10
         user.score.save()
         response_data['currentScore'] = user.score.score
         return JsonResponse(response_data)

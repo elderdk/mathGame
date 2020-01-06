@@ -4,14 +4,19 @@ body {
     justify-content: center;
 }
 .container {
-    border: blue solid 1px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .userBlock {
-    border: #ff0000 dotted 1px;
+    border: black solid 1px;
     border-radius: 5px;
-    margin: 0 10px;
-    height: 100px;
-    width: 100px;
+    background-color: ivory;
+    margin: 0 30px;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

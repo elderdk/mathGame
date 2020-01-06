@@ -5,8 +5,7 @@
 
 <div id="top-info">
         <div id="user-info">
-        Current user: {{ user.username }}
-        Score: <span id="score-display">{{ user.score.score }}</span>
+        {{ user.username }}
         </div>
         <div id="settingsOpenButton">
         Settings
@@ -21,7 +20,7 @@
 </div>
 
 <div id="scoreBoard">
-        <span id="scoreNumber"></span>
+        <span id="scoreNumber">{{ user.score.score }}</span>
 </div>
 
 <audio src="/media/button-28.mp3" type="audio/mpeg" id="successSound"></audio>
@@ -50,7 +49,7 @@ const addAjax = () => {
                         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                         },
                 success:function(json){
-                        $('#score-display').text(json.currentScore);                    
+                        $('#scoreNumber').text(json.currentScore);                    
                         },
                 error : function(xhr,errmsg,err) {
                         console.log(xhr.status + ": " + xhr.responseText);
