@@ -1,4 +1,4 @@
-from random import randrange
+import random
 
 class newNumber:
     """
@@ -25,13 +25,13 @@ class newNumber:
 
     def getOp(self):
         op = self.allowedOperators
-        return op[randrange(len(op))]
+        return op[random.randrange(len(op))]
 
     def nums(self):
         nums = self.arr
         returnArr = [];
         for i in nums:
-            returnArr.append(randrange(int(i[0]), int(i[1])))
+            returnArr.append(random.randrange(int(i[0]), int(i[1])))
         return returnArr
 
     def equation(self):
@@ -55,11 +55,17 @@ class newNumber:
             return False
         return True
 
+    def is_bonus(self):
+        if random.random() < 0.1:  #Current bonus pop-up rate is 8%
+            return True
+        else:
+            return False
+
     def finalEquation(self):
         eq = {}
         while True:
             equation = self.equation()
             answer = eval(equation)
             if self.is_valid(answer):
-                eq = {'equation': equation.split(' '), 'answer': answer}
+                eq = {'equation': equation.split(' '), 'answer': answer, 'is_bonus': self.is_bonus()}
                 return eq

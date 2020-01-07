@@ -47,6 +47,7 @@ const addAjax = () => {
                 data:{
                         action: 'POST',
                         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                        is_bonus: equations[initialTR].is_bonus,
                         },
                 success:function(json){
                         $('#scoreNumber').text(json.currentScore);                    

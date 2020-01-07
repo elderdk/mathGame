@@ -11,7 +11,13 @@ const createEquationTd = obj => {
     })
     returnStr = returnStr + '<td>=</td>'
     returnStr = returnStr + '<td><input type="number" class="answer"></td>'
-    return returnStr
+    if(obj.is_bonus){
+        returnStr = returnStr + '<td><img src="/media/icons8-gift-80.png"></td>'
+        return returnStr
+    } else {
+        returnStr = returnStr + '<td></td>'
+        return returnStr
+    }
 }
 
 // Make new TR
