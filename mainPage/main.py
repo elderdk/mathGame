@@ -56,7 +56,7 @@ class newNumber:
         return True
 
     def is_bonus(self):
-        if random.random() < 0.1:  #Current bonus pop-up rate is 8%
+        if random.random() < 0.08:  #Current bonus pop-up rate is 8%
             return True
         else:
             return False

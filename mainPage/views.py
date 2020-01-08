@@ -71,7 +71,8 @@ def scoreup(request):
     if request.POST.get('action') == 'POST':
         user = User.objects.get(pk = request.user.pk)
 
-        if request.POST.is_bonus:
+        print(request.POST['is_bonus'], user.score.score)
+        if request.POST['is_bonus'] == 'true':
             user.score.score += 20
         else:
             user.score.score += 10

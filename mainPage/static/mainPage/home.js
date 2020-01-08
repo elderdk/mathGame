@@ -49,6 +49,7 @@ let result = '';
 const refreshEventListener = ab => {
     ab.addEventListener("keydown", event => {
         const correctAnswer = equations[initialTR].answer;
+        const bonus = equations[initialTR].is_bonus;
     
         if(event.keyCode === 13){
             if(Number(answerBox.value) === correctAnswer){
@@ -72,8 +73,8 @@ const refreshEventListener = ab => {
                 }
                 
                 answerBox = document.querySelector(".answer")
-                addAjax();
-                doFocus()
+                addAjax(bonus);
+                doFocus();
                 return refreshEventListener(answerBox)
             }         
         };

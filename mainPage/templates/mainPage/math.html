@@ -40,14 +40,14 @@
 <script src="{% static "mainPage/settings.js" %}"></script>
 
 <script>
-const addAjax = () => {
+const addAjax = (is_bonus) => {
         $.ajax({
                 type:'POST',
                 url:'{% url "scoreup" %}',
                 data:{
                         action: 'POST',
                         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-                        is_bonus: equations[initialTR].is_bonus,
+                        is_bonus: is_bonus
                         },
                 success:function(json){
                         $('#scoreNumber').text(json.currentScore);                    
