@@ -6,19 +6,22 @@ class newNumber:
     """
 
     def __init__(self, arr, allowedOperators, negativeAnswerAllowed = False, canExceedTen = True):
-        if arr == [] or len(arr[0]) == 0:
-            self.arr = [[1, 10], [1, 10]]
-        else:
-            splitNums = arr[0].split(';')
-            returnArr = [];
-            for i in splitNums:
-                n = i.replace('(', '').replace(')', '').split(',')
-                returnArr.append(n)
-            self.arr = returnArr
+        
+        # get the numbers
+        splitNums = arr[0].split(';')
+        returnArr = [];
+        for i in splitNums:
+            n = i.replace('(', '').replace(')', '').split(',')
+            returnArr.append(n)
+        self.arr = returnArr
+
         if allowedOperators == []:
             self.allowedOperators = ['+']
         else:
-            self.allowedOperators = allowedOperators;
+            self.allowedOperators = []
+            l = allowedOperators
+            for i in l[0]:
+                self.allowedOperators.append(i)
 
         self.negativeAnswerAllowed = negativeAnswerAllowed;
         self.canExceedTen = canExceedTen;

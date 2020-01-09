@@ -19,30 +19,39 @@ def math(request):
         form = SettingsForm(request.POST)
         if form.is_valid():
             context['form'] = form
-            settings[0].append(form.cleaned_data.get('num1Max'))
+    
+            # add the numbers
+            num1Max = form.cleaned_data.get('num1Max')
 
-            add = form.cleaned_data.get('add')
-            subtract = form.cleaned_data.get('subtract')
-            multiply = form.cleaned_data.get('multiply')
-            divide = form.cleaned_data.get('divide')
-
-            if not add and not subtract and not multiply and not divide:
-                settings[1].append('+')
+            if num1Max == '':
+                settings[0].append(request.POST.user.defaultsetting.eqArr)
             else:
-                if add == True:
-                    settings[1].append('+')
-                if subtract == True:
-                    settings[1].append('-')
-                if multiply == True:
-                    settings[1].append('*')
-                if divide == True:
-                    settings[1].append('/')
+                settings[0].append(form.cleaned_data.get('num1Max'))
             
-            settings.append(form.cleaned_data.get('negativeAnswerAllowed'))
+            # add the operators
+            operators = form.cleaned_data.get('operators')
+
+            if operators == '':
+                settings[1].append(request.POST.user.defaultsetting.allowedOperators)
+            else:
+                settings[1].append(operators)
+                
+            # add other variables
+            settings.append(form.cleaned_data.get('allowedoperators'))
             settings.append(form.cleaned_data.get('canExceedTen'))
             
-
     elif request.method == "GET":
+
+        # add the numbers
+        settings[0].append(request.user.defaultsetting.eqArr)
+
+        # add the operators
+        settings[1].append(request.user.defaultsetting.allowedOperators)
+
+        # add other variables
+        settings.append(request.user.defaultsetting.negativeAnswerAllowed)
+        settings.append(request.user.defaultsetting.canExceedTen)
+
         context['form'] = SettingsForm()
 
     returnArr = [];

@@ -5,9 +5,6 @@ class SettingsForm(forms.Form):
                                 label = "Numbers", 
                                 widget=forms.TextInput(attrs={'placeholder': '(1, 10);(1, 10);(1, 10)'}))
 
-    add = forms.BooleanField(required = False)
-    subtract = forms.BooleanField(required = False)
-    multiply = forms.BooleanField(required = False)
-    divide = forms.BooleanField(required = False)
+    operators = forms.CharField(max_length = 4)
     negativeAnswerAllowed = forms.BooleanField(required = False)
     canExceedTen = forms.BooleanField(required = False)
