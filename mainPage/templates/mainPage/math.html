@@ -1,0 +1,64 @@
+{% extends 'mainPage/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "mainPage/math.css" %}">
+
+<div id="top-info">
+        <div id="user-info">
+        {{ user.username }}
+        </div>
+        <div id="settingsOpenButton">
+        Settings
+        </div>
+</div>
+
+<div id="table-container">
+        <table>
+                <tr id="equation-tr">
+                </tr>
+        </table>
+</div>
+
+<div id="scoreBoard">
+        <span id="scoreNumber">{{ user.score.score }}</span>
+</div>
+
+<audio src="/media/button-28.mp3" type="audio/mpeg" id="successSound"></audio>
+
+<div id="settingsPage">
+        <div id="exitSettings">X</div>
+        <form action="." method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        </form>        
+</div>
+
+{{ numSet|json_script:"equation-list" }}
+
+<script src="{% static "mainPage/home.js" %}"></script>
+<script src="{% static "mainPage/settings.js" %}"></script>
+
+<script>
+const addAjax = (is_correct, is_bonus, is_skull) => {
+        $.ajax({
+                type:'POST',
+                url:'{% url "scoreup" %}',
+                data:{
+                        action: 'POST',
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                        is_correct: is_correct,
+                        is_bonus: is_bonus,
+                        is_skull: is_skull
+                        },
+                success:function(json){
+                        $('#scoreNumber').text(json.currentScore);                    
+                        },
+                error : function(xhr,errmsg,err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                }
+        });
+}
+</script>
+
+{% endblock content %}
