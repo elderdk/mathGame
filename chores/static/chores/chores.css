@@ -1,0 +1,26 @@
+body {
+    width: 99%;
+    height: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    width: 90%;
+    height: 90%;
+    border: blue solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+.choreBox {
+    border: red solid 1px;
+    width: 60%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+}

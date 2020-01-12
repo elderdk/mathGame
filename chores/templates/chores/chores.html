@@ -1,0 +1,38 @@
+{% extends 'mainPage/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "chores/chores.css" %}">
+
+	<div id="container">
+		{% for chore in chores %}
+		<div class="choreBox" id='{{ chore.id }}'>
+			{{ chore }}
+		</div>
+		{% endfor %}
+	</div>
+<script src="{% static "chores/chores.js" %}"></script>
+<script>
+choreBoxes.forEach(e => {
+    e.addEventListener("click", event => {
+		e.style.display = "none";
+        $.ajax({
+            type:'POST',
+            url:'.',
+            data:{
+                    action: 'POST',
+                    csrfmiddlewaretoken: '{{csrf_token}}',
+					user_id: '{{user.id}}',
+					chore_id: e.id,
+                    },
+            success:function(json){
+                    $('#user_score_base').text(json.currentScore);               
+                    },
+            error : function(xhr,errmsg,err) {
+                    console.log(xhr.status + ": " + xhr.responseText);
+            }
+    });
+    })
+})
+</script>
+{% endblock content %}

@@ -13,6 +13,7 @@
     </div>
     <div id="nav-bar">
         <a href="{% url 'home' %}">Home</a>
+        {{ user }}: <span id="user_score_base">{{ user.score.score }}</span>
     </div>
     {% for m in messages %}
     <p>{{m}}</p>
