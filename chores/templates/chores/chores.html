@@ -6,16 +6,23 @@
 
 	<div id="container">
 		{% for chore in chores %}
-		<div class="choreBox" id='{{ chore.id }}'>
-			{{ chore }}
-		</div>
+                
+                        <div class="choreBox" id='{{ chore.id }}'>
+                                {{ chore }} ({{ chore.score }})
+                        </div>
+                
 		{% endfor %}
 	</div>
+
+<audio src="/media/button-28.mp3" type="audio/mpeg" id="successSound"></audio>
+
 <script src="{% static "chores/chores.js" %}"></script>
+
+
 <script>
 choreBoxes.forEach(e => {
     e.addEventListener("click", event => {
-		e.style.display = "none";
+                e.style.display = "none";
         $.ajax({
             type:'POST',
             url:'.',
