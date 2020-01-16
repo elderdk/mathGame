@@ -22,7 +22,7 @@
 <script>
 choreBoxes.forEach(e => {
     e.addEventListener("click", event => {
-                e.style.display = "none";
+                e.className = 'choreBoxDone';
         $.ajax({
             type:'POST',
             url:'.',

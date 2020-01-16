@@ -26,3 +26,18 @@ body {
     background-color: goldenrod;
     font-size: 1.5em;
 }
+
+.choreBoxDone {
+    border: none;
+    width: 45%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    border-radius: 20px;
+    background-color: goldenrod;
+    font-size: 1.5em;
+    opacity: 0.4;
+    text-decoration: line-through;
+}
