@@ -1,5 +1,6 @@
 body {
     align-content: center;
+    background-color: #6e5773;
 }
 
 #top-info {
@@ -29,6 +30,10 @@ table {
     font-stretch: expanded;
 }
 
+td {
+    color: #e9e2d0;
+}
+
 .equationNumber {
     padding: 10px;
     text-align: center;
@@ -52,6 +57,8 @@ input[type="number"]{
     border: none;
     outline: none;
     border-bottom: black solid 1px;
+    color: #e9e2d0;
+    background-color: #6e5773;
 }
 
 #scoreBoard {
@@ -65,7 +72,7 @@ input[type="number"]{
 
 #scoreNumber {
     font-size: 7em;
-    color: goldenrod;
+    color: #d45d79;
 }
 
 #settingsPage {

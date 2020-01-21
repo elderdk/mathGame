@@ -2,15 +2,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #6e5773;
 }
 .container {
     display: flex;
     justify-content: space-between;
 }
 .userBlock {
-    border: black solid 1px;
-    border-radius: 5px;
-    background-color: ivory;
+    border-radius: 15px;
+    background-color: #ea9085;
     margin: 0 30px;
     height: 200px;
     width: 200px;
@@ -19,4 +19,5 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #e9e2d0;
 }
