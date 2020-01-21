@@ -49,7 +49,7 @@ const addAjax = (is_correct, is_bonus, is_skull) => {
                         is_skull: is_skull
                         },
                 success:function(json){
-                        $('#scoreNumber').text(json.currentScore);                    
+                        $('#scoreNumber').text(json.currentScore);                  
                         },
                 error : function(xhr,errmsg,err) {
                         console.log(xhr.status + ": " + xhr.responseText);

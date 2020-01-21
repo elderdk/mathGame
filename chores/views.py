@@ -21,7 +21,7 @@ def chores(request):
     chores = Chore.objects.all()
     available_chores = []
     for chore in chores:
-        if request.user in chore.user_assign.all():
+        if request.user in  chore.user_assign.all():
             log = request.user.log_chore.filter(chore_name = chore, done_time__date=timezone.now())
             if len(log):
                 pass

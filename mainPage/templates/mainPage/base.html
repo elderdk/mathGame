@@ -12,8 +12,11 @@
     <div id="nav-bar-placeholder">
     </div>
     <div id="nav-bar">
-        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'home' %}">Home</a> | 
         {{ user }}: <span id="user_score_base">{{ user.score.score }}</span>
+         | 
+        <a href="/math">Math</a>
+        <a href="/chores">Chores</a>
     </div>
     {% for m in messages %}
     <p>{{m}}</p>
