@@ -21,7 +21,7 @@
 
 <script>
 choreBoxes.forEach(e => {
-    e.addEventListener("click", event => {
+    e.addEventListener("click", function handler() {
                 e.className = 'choreBoxDone';
         $.ajax({
             type:'POST',
@@ -38,7 +38,8 @@ choreBoxes.forEach(e => {
             error : function(xhr,errmsg,err) {
                     console.log(xhr.status + ": " + xhr.responseText);
             }
-    });
+        });
+    e.removeEventListener("click", handler);
     })
 })
 </script>

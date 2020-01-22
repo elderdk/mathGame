@@ -1,0 +1,34 @@
+{% extends 'mainPage/base.html' %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "store/store.css" %}">
+
+{% with ''|center:coins as range%}
+{% for _ in range %}
+<img src="/media/gold_coin.png" class="goldcoin">
+{% endfor %}
+{% endwith %}
+
+<script>
+const addAjax = () => {
+        $.ajax({
+                type:'POST',
+                url:'{% url "spendscore" %}',
+                data:{
+                        action: 'POST',
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        },
+                success:function(json){
+                        $('#user_score_base').text(json.currentScore);
+                        },
+                error : function(xhr,errmsg,err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                }
+        });
+}
+</script>
+
+<script src="{% static "store/store.js" %}"></script>
+
+{% endblock content %}
