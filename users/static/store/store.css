@@ -1,0 +1,9 @@
+.goldcoin {
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+}
+
+.coinspent {
+    opacity: 0.2;
+}
