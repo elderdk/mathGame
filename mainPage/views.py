@@ -66,7 +66,7 @@ def home(request):
     return render(request, 'mainPage/home.html', context)
 
 def auth_user(request, username):
-    password = 'please3213'
+    password = 'a{g{(5HxG9YWB+Y)'
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
