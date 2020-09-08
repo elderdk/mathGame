@@ -65,9 +65,12 @@ def home(request):
         }
     return render(request, 'mainPage/home.html', context)
 
-def auth_user(request, username):
-    password = 'a{g{(5HxG9YWB+Y)'
-    user = authenticate(request, username=username, password=password)
+def auth_user(request):
+    user = request.POST['user']
+    password = request.POST['password']
+    base_pass = '9\dFYbDVKKrj_tjq'
+    password += base_pass
+    user = authenticate(request, username=user, password=password)
     if user is not None:
         login(request, user)
     return redirect('mathPage')

@@ -7,9 +7,20 @@
 <div class="container">
         {% for user in userList %}
                 {% if user.username != 'admin' %}
-                        <a href="authenticate/{{user.username}}"><div class="userBlock">{{ user.username }}</div></a>
+                        <div class="userBlock">{{ user.username }}</div>
                 {% endif %}
         {% endfor %}
 </div>
+<div class="container">
+        <form action="{% url 'authenticate' %}", method="POST">
+                {% csrf_token %}
+                <label for="user">User:</label><br>
+                <input type="text" id="user" name="user" value=""><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" value=""><br><br>
+                <input type="submit" value="Submit">
+        </form> 
+</div>
 
+<script src="{% static "mainPage/log.js" %}"></script>
 {% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'mainPage/base.html' %}
+{% block content%}
+<h2>You have been logged out.</h2>
+
+<script>
+    setTimeout(function(){
+        window.location.href = '/';
+    }, 2000);
+</script>
+{% endblock content %}
