@@ -3,19 +3,26 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static "chores/chores.css" %}">
-
-        <div class="col-8 boxContainer">
-                {% for chore in chores %}
-                        {% if chore.show_by_image %}
-                                <div class="choreBox choreImgBox" id='{{ chore.id }}'>
-                                        <img src="{{chore.image.url}}" class="choreImg"> ({{ chore.score }})
-                                </div>
-                                {% else %}
-                                <div class="choreBox" id='{{ chore.id }}'>
-                                        {{ chore }} ({{ chore.score }})
-                                </div>
-                        {% endif %}
-                {% endfor %}
+<div class="container boxContainer">
+        <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                        {% for chore in chores %}
+                                {% if chore.show_by_image %}
+                                        <div class="choreBox choreImgBox" id='{{ chore.id }}'>
+                                                <img src="{{chore.image.url}}" class="choreImg"> ({{ chore.score }})
+                                        </div>
+                                        {% else %}
+                                        <div class="choreBox" id='{{ chore.id }}'>
+                                                {{ chore }} ({{ chore.score }})
+                                        </div>
+                                {% endif %}
+                        {% endfor %}
+                </div>
+                <div class="col-sm-2">
+                </div>
+        </div>
         </div>
 
 <audio src="/media/button-28.mp3" type="audio/mpeg" id="successSound"></audio>
