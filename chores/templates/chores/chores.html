@@ -5,9 +5,9 @@
 <link rel="stylesheet" type="text/css" href="{% static "chores/chores.css" %}">
 <div class="container">
         <div class="row">
-                <div class="col-md-2">
+                <div class="col-lg-2">
                 </div>
-                <div class="col-md-8 text-center">
+                <div class="col-lg-8 text-center">
                         {% for chore in chores %}
                                 {% if chore.show_by_image %}
                                         <div class="choreBox choreImgBox" id='{{ chore.id }}'>
@@ -20,7 +20,7 @@
                                 {% endif %}
                         {% endfor %}
                 </div>
-                <div class="col-md-2">
+                <div class="col-lg-2">
                 </div>
         </div>
         </div>
