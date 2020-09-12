@@ -6,10 +6,15 @@
 
 	<div id="container">
 		{% for chore in chores %}
-                
+                        {% if chore.show_by_image %}
+                        <div class="choreBox" id='{{ chore.id }}'>
+                                <img src="{{chore.image.url}}" class="choreImg"> ({{ chore.score }})
+                        </div>
+                        {% else %}
                         <div class="choreBox" id='{{ chore.id }}'>
                                 {{ chore }} ({{ chore.score }})
                         </div>
+                        {% endif %}
                 
 		{% endfor %}
 	</div>
